@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Human[] person = new Human[5];
-        int age, bigest = 0, smallest = 0, before = 0;
+        int age, bigest = 0, smallest = 0, indmax=0,indmin=0;
         String samecity = "";
         person[0] = new Human("yair", 16, "pardes-hana", false, "male");
         person[1] = new Human("aiala", 20, "haifa", true, "female");
@@ -34,14 +34,16 @@ public class MainActivity extends AppCompatActivity {
             //check the bigest man
             if (age > bigest) {
                 bigest = age;
+                indmax=i;
                 //check the youngest
-            } else if (smallest < age) {
+            } else if (age<smallest) {
                 smallest = age;
+                indmin=i;
             }
         }
         //print both
-        Log.d("bigest:", "" + bigest);
-        Log.d("smallest:", "" + smallest);
+        Log.d("bigest:", "" + person[indmax].toString());
+        Log.d("smallest:", "" + person[indmin].toString());
         for (int i = 0; i < person.length; i++) {
             for (int j = i + 1; j < person.length; j++) {
                 // Check if both people are over 30 and live in the same city

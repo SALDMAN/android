@@ -55,7 +55,7 @@ public class Human {
         this.drive = drive;
     }
     public String toString(){
-        return "name:"+id+"birth"+age+"city"+city+"isDriving"+drive;
+        return "name:" +id+ "//birth:"+age+"//city:"+city+"//isDriving:"+drive;
     }
 
 
