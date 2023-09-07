@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         person[2] = new Human("ahmed", 30, "jaser", true, "male");
         person[3] = new Human("ziv", 31, "binyamina", true, "female");
         person[4] = new Human("illay", 36, "binyamina", false, "male");
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < person.length; i++) {
             age = 0;
             //check if they are female
             if (person[i].getGender().equals("female")) {
