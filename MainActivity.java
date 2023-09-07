@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             for (int j = i + 1; j < person.length; j++) {
                 // Check if both people are over 30 and live in the same city
                 if (person[i].getAge() > 30 && person[j].getAge() > 30 && person[i].getCity().equals(person[j].getCity())) {
-                    Log.d("same:", "" + person[j].getId());
+                    Log.d("same:", "" + person[j].getId()+person[i].getId());
                 }
                 //else they are not
                 else{
