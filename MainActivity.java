@@ -2,59 +2,38 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.AndroidException;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    Button bton;
+    EditText text1,text2;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Human[] person = new Human[5];
-        int age, bigest = 0, smallest = 0, indmax=0,indmin=0;
-        String samecity = "";
-        person[0] = new Human("yair", 16, "pardes-hana", false, "male");
-        person[1] = new Human("aiala", 20, "haifa", true, "female");
-        person[2] = new Human("ahmed", 30, "jaser", true, "male");
-        person[3] = new Human("ziv", 31, "binyamina", true, "female");
-        person[4] = new Human("illay", 36, "binyamina", false, "male");
-        for (int i = 0; i < person.length; i++) {
-            age = 0;
-            //check if they are female
-            if (person[i].getGender().equals("female")) {
-                Log.d("female:", "female");
-                age = person[i].getAge();
-                age--;
-                //check their age
-            } else {
-                age = person[i].getAge();
-                age++;
-            }
-            //check the bigest man
-            if (age > bigest) {
-                bigest = age;
-                indmax=i;
-                //check the youngest
-            } else if (age<smallest) {
-                smallest = age;
-                indmin=i;
-            }
-        }
-        //print both
-        Log.d("bigest:", "" + person[indmax].toString());
-        Log.d("smallest:", "" + person[indmin].toString());
-        for (int i = 0; i < person.length; i++) {
-            for (int j = i + 1; j < person.length; j++) {
-                // Check if both people are over 30 and live in the same city
-                if (person[i].getAge() > 30 && person[j].getAge() > 30 && person[i].getCity().equals(person[j].getCity())) {
-                    Log.d("same:", "" + person[j].getId()+person[i].getId());
-                }
-                //else they are not
-                else{
-                    Log.d("False:","false");
-                }
-            }
-        }
+
+        bton = findViewById(R.id.bton);
+        bton.setOnClickListener(this);
+        text1 = findViewById(R.id.text1);
+        text1.setText("yuval");
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        text1.setText("gay");
+    }
+    private static class Human{
+
     }
 }
