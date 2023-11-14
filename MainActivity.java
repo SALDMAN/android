@@ -4,36 +4,35 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.AndroidException;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    Button bton;
-    EditText text1,text2;
+public class MainActivity extends AppCompatActivity {
+    TTSManager ttsManager=null;
+    private EditText et;
+    private Button bt;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        bton = findViewById(R.id.bton);
-        bton.setOnClickListener(this);
-        text1 = findViewById(R.id.text1);
-        text1.setText("yuval");
+        ttsManager = new TTSManager(this);
+        et=findViewById(R.id.et);
+        bt=findViewById(R.id.bt);
+        bt.setOnClickListener(this::speakOnClick);
     }
-
-
     @Override
-    public void onClick(View view) {
-        text1.setText("gay");
+    protected void onDestroy() {
+        super.onDestroy();
+        ttsManager.shutdown();
     }
-    private static class Human{
+    public void speakOnClick(View v) {
 
+        String text = et.getText().toString();
+        ttsManager.speak(text,true);
     }
+
 }
