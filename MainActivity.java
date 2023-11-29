@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class speaker extends AppCompatActivity implements View.OnClickListener {
     private TTSManager ttsManager = null;
     private EditText et;
     private Button bt;
