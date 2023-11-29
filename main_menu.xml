@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_item1"
+        android:title="hanucia"
+        android:icon="@drawable/hanuc" />
+    <item
+        android:id="@+id/menu_item2"
+        android:title="sufgania"
+        android:icon="@drawable/safgi" />
+    <item
+        android:id="@+id/menu_item3"
+        android:title="sevivon"
+        android:icon="@drawable/sef" />
+</menu>
